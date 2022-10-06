@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      database: {DB_NAME}
+      uri: {DB_URI}
+  mongodb:
+    embedded:
+      version: 3.4.11
