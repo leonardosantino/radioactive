@@ -1,8 +1,8 @@
 spring:
   data:
     mongodb:
-      database: ${DB_NAME}
-      uri: ${DB_URI}
+      database: Localhost
+      uri: mongodb://localhost:27017/
   mongodb:
     embedded:
       version: 3.4.11
