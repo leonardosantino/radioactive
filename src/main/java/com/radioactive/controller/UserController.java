@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -17,8 +19,16 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<User> save(@RequestBody User user) {
+    public Mono<User> save(@Valid @RequestBody User user) {
+
         return service.save(user);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> update(@PathVariable String id, @Valid @RequestBody User user) {
+
+        return service.update(id, user);
     }
 
     @GetMapping("/{id}")
@@ -36,6 +46,12 @@ public class UserController {
     @GetMapping(value = "/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public Flux<User> findAllByEvents() {
-        return  service.findAll();
+        return service.findAll();
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Mono<Void> deleteById(@PathVariable String id) {
+        return service.deleteById(id);
     }
 }

@@ -1,4 +1,4 @@
-package com.radioactive.flux;
+package com.radioactive.study.flux;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;

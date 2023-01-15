@@ -1,4 +1,4 @@
-package com.radioactive.mono;
+package com.radioactive.study.mono;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
